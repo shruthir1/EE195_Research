@@ -1,22 +1,51 @@
+import csv
 import pandas as pd 
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+def parse_and_gate_csv(file_path, output_path):
+    gates = {}
+    with open(file_path, newline='') as csv_file:
+        for row in csv.reader(csv_file):
+            if not row or row[0].strip() == 'part':
+                continue
+            if row[0].strip() != 'AND':
+                continue
+
+            gate_name = row[1].strip()
+            gate = gates.setdefault(gate_name, {
+                'name': gate_name,
+                'type': 'AND',
+            })
+
+            param = row[3].strip() if len(row) > 3 else ''
+            value = row[4].strip() if len(row) > 4 else ''
+
+            if param in {'ymax', 'ymin', 'K1', 'K2', 'n'}:
+                gate[param] = value
+            elif param == 'equation':
+                gate['equation'] = value
+
+    ordered_columns = ['name', 'type', 'ymax', 'ymin', 'K1', 'K2', 'n', 'equation']
+    result = pd.DataFrame(gates.values(), columns=ordered_columns)
+    result.to_csv(output_path, index=False)
+
+
 def parse_csv(file_path, output_path):
+    if file_path.endswith('gates_Eco3C3G3T3.csv'):
+        parse_and_gate_csv(file_path, output_path)
+        return
+
     curr = pd.read_csv(file_path)
-    curr = curr.drop( columns=["color", "promoter","promoterDNA","ribozyme","ribozymeDNA","rbs","rbsDNA","cds","cdsDNA","terminator","terminatorDNA", ])
-    curr.to_csv(output_path, index_label=False)
+    curr = curr.drop(columns=["color", "promoter","promoterDNA","ribozyme","ribozymeDNA","rbs","rbsDNA","cds","cdsDNA","terminator","terminatorDNA"], errors='ignore')
+    curr.to_csv(output_path, index=False) # index=False prevents writing an unnamed column
 
 # def plot_gate_equation(parsed_csv):
 #     # f = pd.read_csv(parsed_csv)
 #     # rows = len(f) #how many gates needs to be plotted 
 
 #     # figure, axes = plt.subplots(rows, 1, figsize=(2, 5*rows))
-
-def parse_csv(file_path, output_path):
-    curr = pd.read_csv(file_path)
-    curr = curr.drop(columns=["color", "promoter","promoterDNA","ribozyme","ribozymeDNA","rbs","rbsDNA","cds","cdsDNA","terminator","terminatorDNA"], errors='ignore')
-    curr.to_csv(output_path, index=False) # index=False prevents writing an unnamed column
 
 
 parsed_csv_files = []
@@ -36,9 +65,8 @@ curr.to_csv('parsed_Eco2C2G2T2.csv', index_label=False)
 #reading fourth library file - not sure what is going on here yet
 #curr = pd.read_csv('/home/shrut/bioCircuitProject/testingCello/cello/resources/csv_gate_libraries/gates_Eco3C3G3T3.csv')
 
-#reading fifth library file - i think its fine as is? dont know if it needs to be stripped of cols
-curr = pd.read_csv('/home/shrut/bioCircuitProject/testingCello/cello/resources/csv_gate_libraries/gates_Eco3C3G3T3.csv')
-curr.to_csv('parsed_Eco3C3G3T3.csv', index_label=False)
+#reading fifth library file - normalize the AND gate rows so each gate is one row, matching the rest of the parsed libraries.
+parse_csv('/home/shrut/bioCircuitProject/testingCello/cello/resources/csv_gate_libraries/gates_Eco3C3G3T3.csv', 'parsed_Eco3C3G3T3.csv')
 # parsed_csv_files.append('parsed_Eco3C3G3T3.csv')
 
 #reading sixth library file 

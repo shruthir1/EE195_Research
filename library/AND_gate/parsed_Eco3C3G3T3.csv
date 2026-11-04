@@ -1,34 +1,3 @@
-AND,SicA_InvF,pSicA,x1,RiboH10,RBSforSicA,SicA,BBa_B1006_U10,0.1,1.5
-0,AND,SicA_InvF,pSicA,x2,RiboH11,RBSforInvF,InvF,hismins,0.1,1.5
-1,AND,SicA_InvF,pSicA,equation,ymin + (ymax-ymin) * (x1^n / (K1^n + x1^n)) * (x2^n / (K2^n + x2^n)),,,,,
-2,AND,SicA_InvF,pSicA,ymax,6,,,,,
-3,AND,SicA_InvF,pSicA,ymin,0.02,,,,,
-4,AND,SicA_InvF,pSicA,K1,0.5,,,,,
-5,AND,SicA_InvF,pSicA,K2,0.5,,,,,
-6,AND,SicA_InvF,pSicA,n,2,,,,,
-7,AND,ExsC_ExsDA,pExsC,x1,RiboH12,RBSforExsC,ExsC,M13central,0.04,2.0
-8,AND,ExsC_ExsDA,pExsC,x2,RiboH24,RBSforExsDA,ExsDA,ilvGEDA,0.01,3.0
-9,AND,ExsC_ExsDA,pExsC,equation,ymin + (ymax-ymin) * (x1^n / (K1^n + x1^n)) * (x2^n / (K2^n + x2^n)),,,,,
-10,AND,ExsC_ExsDA,pExsC,ymax,2,,,,,
-11,AND,ExsC_ExsDA,pExsC,ymin,0.008,,,,,
-12,AND,ExsC_ExsDA,pExsC,K1,0.2,,,,,
-13,AND,ExsC_ExsDA,pExsC,K2,0.03,,,,,
-14,AND,ExsC_ExsDA,pExsC,n,2,,,,,
-15,part,pSicA,promoter,ccacaagaaacgaggtacggcattgagccgcgtaaggcagtagcgatgtattcattgggcgttttttgaatgttcactaaccaccgtcggggtttaataactgca,,,,,,
-16,part,RiboH10,ribozyme,AGTCCCGTTACCCGCAGCTGATGAGCCCCAAAAAGGGCGAAACCTATTAGGTCCTGCGGTACTGGGATcctctacaaataattttgtttaa,,,,,,
-17,part,RBSforSicA,rbs,ttgggctagcgaattcgagctcggtacctcacacaggaaaggcctcg,,,,,,
-18,part,SicA,cds,atggattatcaaaataatgtcagcgaagaacgtgttgcggaaatgatttgggatgccgttagtgaaggcgccacgctaaaagacgttcatgggatccctcaagatatgatggacggtttatatgctcatgcttatgagttttataaccagggacgactggatgaagctgagacgttctttcgttacttatgcatttatgatttttacaatcccgattacaccatgggactggcggcagtatgccaactgaaaaaacaatttcagaaagcatgtgacctttatgcagtagcgtttacgttacttaaaaatgattatcgccccgttttttttaccgggcagtgtcaattattaatgcgtaaggcagcaaaagccagacagtgttttgaacttgtcaatgaacgtactgaagatgagtctctgcgggcaaaagcgttggtctatctggaggcgctaaaaacggcggagacagagcagcacagtgaacaagaaaaggaataa,,,,,,
-19,part,BBa_B1006_U10,terminator,AAAAAAAAACCCCGCCCCTGACAGGGCGGGGTTTTTTTTTT,,,,,,
-20,part,RiboH11,ribozyme,AGCCGCGTTACCAGCAGCTGATGAGCACCAAAAAGTGCGAAACCTATTAGGTCCTGCTGTACTGCGGTcctctacaaataattttgtttaa,,,,,,
-21,part,RBSforInvF,rbs,ggtcgagctcatcccgtcagcgttcctatggatggtacaact,,,,,,
-22,part,InvF,cds,atgctaaatacgcaggaagtacttaaagaaggagagaagcggaaaatccgcagcccggaagcatggtttatacagacgtgttccgcgcaaaagctgcatatgtcattttctgaaagccgacacaatgaaaattgcctgattcaggaaggcgcgctgcttttttgcgagcaggccgttgtcgcaccagtatcaggcgacctggtttttcgaccgttaaaaattgaagtactcagcaaattactggcatttatcgatggcgcaggattagtggacacgacatatgctgaatccgataaatgggttttgctgagtcctgagtttcgcgctatttggcaagatcgtaaacgctgcgagtactggtttttgcagcaaattattacgccttctccggccttcaataaggtactggcgctgttacgaaaaagcgagagttactggttggttggctatttactcgctcagtcaaccagcggcaacacgatgagaatgctgggagaggactatggcgtttcttatacccattttcgtcgtttgtgcagcagagcgttgggcggaaaagcgaagagtgaattacgaaactggcgtatggcgcaatcgctgctgaatagtgtagaaggccacgagaacatcacccaattagccgttaatcatggttactcatcgccttcacatttttctagtgagatcaaagagctgatcggcgtttcgccgcggaaattatcaaatattattcaattggcagacaaatga,,,,,,
-23,part,hismins,terminator,GCCCCCGGAAGATCATTCCGGGGGCTTTTTTATT,,,,,,
-24,part,pExsC,promoter,gatgtggcttttttcttaaaagaaaagtctctcagtgacaaaagcgatgcatagcccggtgctagcatgcgctgagcttt,,,,,,
-25,part,RiboH12,ribozyme,AGGCGCGTTACCCTCAGCTGATGAGCGCCAAAAAGCGCGAAACCTATTAGGTCCTGAGGTACTGCGCTcctctacaaataattttgtttaa,,,,,,
-26,part,RBSforExsC,rbs,tactagagtcagaattcgctttaggaggcgccccc,,,,,,
-27,part,ExsC,cds,atggatttaacgagcaaggtcaaccgactgcttgccgagttcgcaggccgtatcggtttgccttccctgtccctcgacgaggagggcatggcgagcctcctgttcgacgaacaggtgggcgtcaccctgttgctgctcgccgagcgcgagcgtctgttgctggaggccgatgtggcgggcatcgatgtgctgggcgaggggatctttcgccagctcgccagcttcaaccgccattggcaccgtttcgatctgcatttcggcttcgacgagctgaccggcaaggtccagttgtatgcgcagattctcgcagcgcaactgaccctcgaatgcttcgaggcgaccttggccaatctgctcgatcacgccgagttctggcagcgcctgctgccgtgcgacagtgatcgcgaggcggtcgctgcggtcggcatgagggtttga,,,,,,
-28,part,M13central,terminator,GGCTCCTTTTGGAGCCTTTTTTTTT,,,,,,
-29,part,RiboH24,ribozyme,AGCTTCGTTACCACAAGCTGATGAGATCCAAAAAGATCGAAACCTATTAGGTCCTTGTGTACTGAAGCCCTCTACAAATAATTTTGTTTAA,,,,,,
-30,part,RBSforExsDA,rbs,acatatataaagcgcgcaatgtagtgaggaagccaaggcagaga,,,,,,
-31,part,ExsDA,cds,atggagcaggaggacgataagcagtactcccgagaagcggtgttcgctggcaggcgggtatccgtggtgggctcggacgcccgctcgcggggtcgggtgccgggttacgcatcgagcagtttgtatcgtgagtccggaatcatcagtgcgcggcaactggcgttgctgcagcggatgctgccgcgcctgcggctggagcaactgttccgctgcgagtggttgcagcagcgcctggcgcgcggcctggcgctggggcgcgaagaggtgcggcagattctcctctgcgcggcgcaggacgacgacggctggtgctccgaactgggcgaccgggtcaacctcgccgtgccgcagtcgatgatcgactgggtcctgctgccggtctatggctggtgggaaagcctgctcgaccaggcgatccccggctggcgcctgtcgctggtggagctggaaacccagtcccggcaactgcgagtcaagtccgaattctggtcccgcgtggccgagctggagccggagcaggcccgcgaggaactggccagggtcgccaagtgccaggcgcgcacccaggaacaggtggccgaactggccggcaagctggagacggcttcggcactggcgaagagcgcctggccgaactggcagcggggcatggcgacgctgctcgccagcggcgggctggccggcttcgagccgatccccgaggtcctcgaatgcctctggcaacctctctgccggctggacgacgacgtcggcgcggcggacgccgtccaggcctggctgcacgaacgcaacctgtgccaggcacaggatcacttctactggcagagctgagcattcaaggtacgacgggaagtgttggggttcttataatatgcaaggagccaaatctcttggccgaaagcagataacgtcttgtcattggaacattccaactttcgaatacagggtaaacaaggaagagggcgtatatgttctgctcgagggcgaactgaccgtccaggacatcgattccactttttgcctggcgcctggcgagttgcttttcgtccgccgcggaagctatgtcgtaagtaccaagggaaaggacagccgaatactctggattccattatctgcccagtttctacaaggcttcgtccagcgcttcggcgcgctgttgagtgaagtcgagcgttgcgacgagcccgtgccgggcatcatcgcgttcgctgccacgcctctgctggccggttgcgtcaaggggttgaaggaattgcttgtgcatgagcatccgccgatgctcgcctgcctgaagatcgaggagttgctgatgctcttcgcgttcagtccgcaggggccgctgctgatgtcggtcctgcggcaactgagcaaccggcatgtcgagcgtctgcagctattcatggagaagcactacctcaacgagtggaagctgtccgacttctcccgcgagttcggcatggggctgaccaccttcaaggagctgttcggcagtgtctatggggtttcgccgcgcgcctggatcagcgagcggagaatcctctatgcccatcagttgctgctcaacagcgacatgagcatcgtcgacatcgccatggaggcgggcttttccagtcagtcctatttcacccagagctatcgccgccgtttcggctgcacgccgagccgctcgcggcaggggaaggacgaatgccgggctaaaaataactga,,,,,,
-32,part,ilvGEDA,terminator,TAGAGATCAAGCCTTAACGAACTAAGACCCCCGCACCGAAAGGTCCGGGGGTTTTTTTTGACCTTAAAAACATAACCGAGGAGCAGACA,,,,,,
+name,type,ymax,ymin,K1,K2,n,equation
+SicA_InvF,AND,6,0.02,0.5,0.5,2,ymin + (ymax-ymin) * (x1^n / (K1^n + x1^n)) * (x2^n / (K2^n + x2^n))
+ExsC_ExsDA,AND,2,0.008,0.2,0.03,2,ymin + (ymax-ymin) * (x1^n / (K1^n + x1^n)) * (x2^n / (K2^n + x2^n))
